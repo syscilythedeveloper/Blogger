@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Blog Posts</title>
+  </head>
+
+  <body>
+    <!-- Write your code here -->
+    <ul>
+      <%blogPosts.forEach((post,postNumber) => { %>
+
+      <li name="postNumber">
+        Post number <%=postNumber+1%>: <%=post%>
+        <form action="/deletePost" method="GET">
+          <input type="hidden" name="postNumber" value="<%= postNumber %>" />
+          <button type="submit">Delete Post</button>
+        </form>
+        <form action="/editPost" method="GET">
+          <input type="hidden" name="postNumber" value="<%= postNumber %>" />
+          <button type="submit">Edit Post</button>
+        </form>
+      </li>
+
+      <%})%>
+    </ul>
+  </body>
+</html>
